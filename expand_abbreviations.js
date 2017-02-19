@@ -39,9 +39,14 @@ function name_expand(name) {
     for (var i = 0; i < words.length; ++i) {
         var word = words[i];
         var lword = word.toLowerCase();
+
+        if (lword.length() == 0) continue;
+
+        console.println(lword.char);
+
         // Remove any trailing "." so things like "Dr." will match "Dr"
-        if (lword.charAt(lword.length() - 1) == ".") {
-            lword = lword.substr(0, -1);
+        if (lword.slice(lword.length() - 1, lword.length()) == '.') {
+            lword = lword.slice(0, lword.length() - 1);
         }
         var replaced = false;
         // Check all mappings, replace if match found
