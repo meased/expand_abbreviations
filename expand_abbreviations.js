@@ -21,6 +21,7 @@ function name_expand(name) {
         ["pl", "Place"],
         ["st", "Street"],
         ["tr", "Trail"],
+        ["trl", "Trail"],
         ["wy", "Way"],
         ["pkwy", "Parkway"],
         ["pky", "Parkway"],
@@ -41,8 +42,6 @@ function name_expand(name) {
         var lword = word.toLowerCase();
 
         if (lword.length() == 0) continue;
-
-        console.println(lword.char);
 
         // Remove any trailing "." so things like "Dr." will match "Dr"
         if (lword.slice(lword.length() - 1, lword.length()) == '.') {
