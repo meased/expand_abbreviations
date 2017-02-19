@@ -12,6 +12,7 @@ function name_expand(name) {
         ["dr", "Drive"],
         ["ave", "Avenue"],
         ["blvd", "Boulevard"],
+        ["bl", "Boulevard"],
         ["cr", "Crossing"],
         ["cir", "Circle"],
         ["ct", "Court"],
