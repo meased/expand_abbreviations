@@ -11,8 +11,10 @@ function name_expand(name) {
     var mappings = [
         ["dr", "Drive"],
         ["ave", "Avenue"],
+        ["av", "Avenue"],
         ["blvd", "Boulevard"],
         ["bl", "Boulevard"],
+        ["blv", "Boulevard"],
         ["cr", "Crossing"],
         ["cir", "Circle"],
         ["ct", "Court"],
@@ -21,6 +23,7 @@ function name_expand(name) {
         ["ln", "Lane"],
         ["pl", "Place"],
         ["st", "Street"],
+        ["snt", "Saint"],
         ["tr", "Trail"],
         ["trl", "Trail"],
         ["wy", "Way"],
@@ -28,6 +31,7 @@ function name_expand(name) {
         ["pky", "Parkway"],
         ["rd", "Road"],
         ["ca", "Calle"],
+        ["expy", "Expressway"],
         ["n", "North"],
         ["e", "East"],
         ["s", "South"],
@@ -48,6 +52,11 @@ function name_expand(name) {
         if (lword.slice(lword.length() - 1, lword.length()) == '.') {
             lword = lword.slice(0, lword.length() - 1);
         }
+
+        if (lword == "st" && i == 0) {
+            lword = "snt";
+        }
+
         var replaced = false;
         // Check all mappings, replace if match found
         for (var j = 0; j < mappings.length; ++j) {
@@ -55,7 +64,7 @@ function name_expand(name) {
                 if (lword == "cr") {
                     console.println("        WARNING: Cr could be Crossing or Creek")
                 }
-                else if (lword == "St") {
+                else if (lword == "st" || lword == "snt") {
                     console.println("        WARNING: St could be Street or Saint")
                 }
                 expanded.push(mappings[j][1]);
@@ -89,7 +98,7 @@ function main() {
         if (name.length() < 4) continue;
         var words = name.split(" ");
         if (words.length < 2) continue;
-       
+
         newname = name_expand(name);
         if (name == newname) continue;
 
