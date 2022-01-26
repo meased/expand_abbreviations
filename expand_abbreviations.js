@@ -20,6 +20,7 @@ function name_expand(name) {
         ["ct", "Court"],
         ["cv", "Cove"],
         ["ext", "Extension"],
+        ["extn", "Extension"],
         ["hwy", "Highway"],
         ["ln", "Lane"],
         ["pl", "Place"],
